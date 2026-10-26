@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/void_black">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp">
+
+                <ImageView
+                    android:id="@+id/icon_shield"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:src="@drawable/ic_shield"
+                    android:contentDescription="@string/app_name" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="@string/app_name"
+                    android:textColor="@color/neon_green"
+                    android:textSize="26sp"
+                    android:fontFamily="monospace"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.05" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tagline"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:fontFamily="monospace"
+                android:layout_marginBottom="18dp" />
+
+            <!-- Upload Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card"
+                android:padding="18dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="01 // TARGET APK"
+                    android:textColor="@color/neon_cyan"
+                    android:fontFamily="monospace"
+                    android:textStyle="bold"
+                    android:textSize="13sp"
+                    android:layout_marginBottom="10dp" />
+
+                <TextView
+                    android:id="@+id/txt_file_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_file"
+                    android:textColor="@color/text_secondary"
+                    android:fontFamily="monospace"
+                    android:textSize="12sp"
+                    android:background="@drawable/bg_console"
+                    android:padding="12dp"
+                    android:layout_marginBottom="12dp" />
+
+                <Button
+                    android:id="@+id/btn_select_apk"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:text="@string/select_apk"
+                    android:textColor="@color/neon_green"
+                    android:background="@drawable/bg_button_neon"
+                    android:fontFamily="monospace"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08"
+                    android:elevation="0dp" />
+            </LinearLayout>
+
+            <!-- Feature Matrix -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card"
+                android:padding="18dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="02 // PROTECTION MATRIX"
+                    android:textColor="@color/neon_cyan"
+                    android:fontFamily="monospace"
+                    android:textStyle="bold"
+                    android:textSize="13sp"
+                    android:layout_marginBottom="10dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_features"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+            </LinearLayout>
+
+            <!-- Action -->
+            <Button
+                android:id="@+id/btn_start"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:text="@string/start_protection"
+                android:textColor="@color/void_black"
+                android:backgroundTint="@color/neon_green"
+                android:fontFamily="monospace"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Progress -->
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:progressDrawable="@drawable/progress_neon"
+                android:max="100"
+                android:progress="0"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:id="@+id/txt_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/status_idle"
+                android:textColor="@color/neon_magenta"
+                android:fontFamily="monospace"
+                android:textSize="11sp"
+                android:layout_marginBottom="14dp" />
+
+            <!-- Console Log -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="03 // SYSTEM LOG"
+                android:textColor="@color/neon_cyan"
+                android:fontFamily="monospace"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:layout_marginBottom="8dp" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:background="@drawable/bg_console"
+                android:padding="12dp">
+
+                <TextView
+                    android:id="@+id/txt_console"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/console_boot"
+                    android:textColor="@color/neon_green"
+                    android:fontFamily="monospace"
+                    android:textSize="11sp"
+                    android:lineSpacingExtra="4dp" />
+            </ScrollView>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
