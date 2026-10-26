@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 import android.widget.TextView;
@@ -12,8 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cipherveil.protector.R;
-
-import java.util.List;
 
 /**
  * Renders the protection feature matrix. Every row enters with a staggered
@@ -51,7 +50,7 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.VH> {
         h.box.setOnCheckedChangeListener((btn, isChecked) -> checked[position] = isChecked);
 
         if (position > lastAnimatedPosition) {
-            View anim = AnimationUtils.loadAnimation(ctx, R.anim.fade_scale_in);
+            Animation anim = AnimationUtils.loadAnimation(ctx, R.anim.fade_scale_in);
             anim.setStartOffset(position * 45L);
             h.itemView.startAnimation(anim);
             lastAnimatedPosition = position;
