@@ -44,8 +44,14 @@ jobs:
             "ndk;26.1.10909125" \
             "cmake;3.22.1"
 
+      # Pinned to match the AGP version in build.gradle (AGP 8.5.x needs
+      # Gradle 8.7). Leaving this unpinned lets setup-gradle grab whatever
+      # is newest (it previously pulled Gradle 9.8.1), which AGP does not
+      # support and fails tasks like dataBindingMergeDependencyArtifactsDebug.
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '8.7'
 
       - name: Build debug APK
         run: gradle assembleDebug --no-daemon
